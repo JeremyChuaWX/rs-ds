@@ -1,19 +1,12 @@
 # Rust Data Structures
 
-Aim is to learn rust through implementing common data structures and their algorithms.
+Aim is to learn rust by implementing common data structures.
 
 ## List of data structures to be implemented
 
-- [ ] Doubly linked list
+- [ ] Deque
 - [ ] Queue
 - [ ] BST
 - [ ] AST
+- [ ] Heap
 - [ ] Priority queue
-- [ ] Graph
-
-## Algorithms to be implemented
-
-- [ ] BFS
-- [ ] DFS
-- [ ] Dijkstra's algorithm
-- [ ] A* search
