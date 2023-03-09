@@ -1,7 +1,11 @@
 #![allow(dead_code)]
 
-use std::cell::RefCell;
-use std::rc::Rc;
+// https://rtoch.com/posts/rust-doubly-linked-list/
+
+use std::{
+    cell::{Ref, RefCell},
+    rc::Rc,
+};
 
 type DequeNodePtr<T> = Rc<RefCell<DequeNode<T>>>;
 
@@ -114,5 +118,17 @@ impl<T> Deque<T> {
             }
             Rc::try_unwrap(curr_tail).ok().unwrap().into_inner().value
         })
+    }
+
+    pub fn peek_front(&self) -> Option<Ref<T>> {
+        self.head
+            .as_ref()
+            .map(|curr_head| Ref::map(curr_head.borrow(), |curr_head| &curr_head.value))
+    }
+
+    pub fn peek_back(&self) -> Option<Ref<T>> {
+        self.tail
+            .as_ref()
+            .map(|curr_tail| Ref::map(curr_tail.borrow(), |curr_tail| &curr_tail.value))
     }
 }
